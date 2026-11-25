@@ -2,7 +2,7 @@
 
 멋쟁이사자처럼 연합 해커톤 **용용톤**에서 만든 어르신 교통 동행 서비스의 백엔드 작업을 정리했습니다. 어르신과 보호자가 계정을 사용하고 서로 연결되며, 필요한 알림을 확인할 수 있도록 하는 기능을 담당했습니다.
 
-> 이 저장소는 **김도영의 담당 작업을 설명하는 공개용 포트폴리오**입니다. 팀의 원본 백엔드 저장소는 비공개이며, 팀 코드를 복사하거나 서비스 전체를 혼자 개발한 것처럼 제시하지 않습니다.
+> 이 저장소는 **김도영이 작성한 코드를 선별해 공개한 포트폴리오**입니다. 팀의 원본 백엔드 저장소는 비공개이며, 팀 공동 코드와 설정은 포함하지 않았습니다. 이 코드만으로 서비스 전체를 실행할 수는 없습니다.
 
 ## 프로젝트와 내 역할
 
@@ -11,7 +11,16 @@
 | 프로젝트 | 어르신 교통 동행 서비스 (팀 프로젝트) |
 | 담당 | 백엔드 계정·인증, 어르신 정보, 보호자 연결, 알림 조회·읽음 처리 |
 | 기술 | Java 21, Spring Boot, MySQL, Flyway, JWT, JUnit, 외부 문자 발송 API |
-| 작업 기록 | 팀 저장소의 병합된 PR #3, #7, #9에 해당하는 작업을 아래에 요약했습니다. 원본 PR은 비공개 저장소에 있어 외부에서는 열리지 않습니다. |
+| 작업 기록 | 팀 저장소의 병합된 PR #3, #7, #9에서 본인이 작성한 파일을 선별했습니다. 원본 PR은 비공개 저장소에 있어 외부에서는 열리지 않습니다. |
+
+## 실제 작성 코드
+
+- [계정·어르신 정보·보호자 연결·알림 API](src/main/java/com/yongyong/backend/account/AccountController.java)와 [서비스 로직](src/main/java/com/yongyong/backend/account/AccountService.java)
+- [문자 인증·로그인·세션 처리](src/main/java/com/yongyong/backend/account/PhoneAuthService.java)
+- [센드엠 문자 발송 연동](src/main/java/com/yongyong/backend/account/SendmSmsSender.java)
+- [계정·인증 데이터베이스 마이그레이션](src/main/resources/db/migration/V1__account_domain.sql), [전화번호 인증](src/main/resources/db/migration/V2__phone_verifications.sql), [로그인 세션](src/main/resources/db/migration/V6__auth_sessions.sql)
+
+위 파일은 팀 PR에 포함된 **실제 작성 코드의 스냅샷**입니다. 의존하는 팀 공동 클래스, 빌드 설정, 실행 환경과 테스트 데이터는 제외했습니다. 따라서 이 저장소는 **코드 검토용**이며 독립 실행이나 전체 서비스 재현을 위한 저장소는 아닙니다.
 
 ## 구현한 기능
 
@@ -44,4 +53,4 @@ flowchart LR
 
 ## 공개 범위
 
-팀 저장소의 소스 코드와 PR은 비공개입니다. 이 README에는 제가 맡은 기능, 해결한 문제와 확인한 결과만 정리했습니다. 인증번호, 토큰, API 키, 실제 사용자 정보는 포함하지 않았습니다.
+팀 원본 저장소와 전체 PR은 비공개입니다. 이 공개 저장소에는 본인이 작성한 계정·인증 영역의 일부 코드만 넣었습니다. 인증번호, 토큰, API 키, 실제 사용자 정보는 포함하지 않았습니다.
